@@ -4,7 +4,6 @@
 
 An interactive data visualization project that transforms complex conflict data into accessible visual stories. Built as part of coursework at the University of Genoa.
 
-**🔗 Live Demo (Vercel)**: [https://website-fbxrbsl33-nhds-projects-1f9f26fe.vercel.app/](https://website-fbxrbsl33-nhds-projects-1f9f26fe.vercel.app/)
 
 **🔗 Live Demo (GitHub Pages)**: [https://nmsw-datavis.github.io/docs/](https://nmsw-datavis.github.io/docs/)
 
