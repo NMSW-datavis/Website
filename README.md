@@ -6,9 +6,9 @@ An interactive data visualization project that transforms complex conflict data 
 
 **🔗 Live Demo (Vercel)**: [https://website-fbxrbsl33-nhds-projects-1f9f26fe.vercel.app/](https://website-fbxrbsl33-nhds-projects-1f9f26fe.vercel.app/)
 
-**🔗 Live Demo (GitHub Pages)**: [https://nmsw-datavis.github.io/Website/](https://nmsw-datavis.github.io/docs/)
+**🔗 Live Demo (GitHub Pages)**: [https://nmsw-datavis.github.io/docs/](https://nmsw-datavis.github.io/docs/)
 
-**📂 Repository**: [https://github.com/NMSW-datavis/Website](https://github.com/NMSW-datavis/docs)
+**📂 Repository**: [https://github.com/NMSW-datavis/docs](https://github.com/NMSW-datavis/docs)
 
 ---
 
