@@ -2,175 +2,235 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConflictViz: A Data Visualization Project</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ConflictViz — Comparisons Dashboard</title>
 
-    <!-- Required Fonts (Roboto Slab for titles, Fira Sans for body) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Fira+Sans:wght@400;500&display=swap"
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&family=Fira+Sans:wght@400;600&display=swap"
+        rel="stylesheet" />
 
-    <!-- Link to the revised CSS file -->
-    <link rel="stylesheet" href="./style/style.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="./style/style.css" />
 </head>
 
 <body>
-
-
-    <header class="site-header">
-        <div class="container">
-            <div class="nav-container">
-                <div class="logo-container">
-                    <img src="./img/logo.svg" alt="Università di Genova Logo" class="unige-logo">
-                    <div class="logo-text">
-                        <span class="project-title-nav">ConflictViz</span>
-                        <span class="unige-subtitle">Data Visualization Project</span>
-                    </div>
-                </div>
-                <nav class="main-nav">
-                    <ul class="nav-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#project">The Project</a></li>
-                        <li><a href="#data">Data Sources</a></li>
-                    </ul>
-                </nav>
+    <!-- Sticky Top Nav -->
+    <nav class="topbar">
+        <div class="container topbar-inner">
+            <div class="brand">ConflictViz</div>
+            <div class="toc">
+                <a href="#intro">Intro</a>
+                <a href="#mandatory">Mandatory</a>
+                <a href="#extra">Extra</a>
+                <a href="#methods">Data & Methods</a>
             </div>
+            <div class="actions">
+                <button id="theme" title="Toggle light/dark">🌓</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>ConflictViz</h1>
+            <p class="sub">Visualizing conflict metrics and the human toll with data</p>
+            <p class="note">Hover charts to see exact values • Colors are consistent • All charts are downloadable</p>
         </div>
     </header>
 
-    <main>
-        <!-- 
-      Hero Section (Mandatory Elements)
-      - Title, Subtitle (Group Name), Team Members
-    -->
-        <section class="hero" id="home">
-            <div class="container">
-                <div class="hero-content">
-                    <!-- Main H1 Title -->
-                    <h1>Visualizing Conflict and Human Suffering through Data</h1>
-                    <!-- Subtitle -->
-                    <p class="subtitle">A Project by Group NWYS</p>
-                    <!-- Team Members -->
-                    <p class="team-members">[Sebah] | [Mohamad] | [Nahid] | [Wassim]</p>
+    <main class="container">
+        <!-- ====== Intro ====== -->
+        <section id="intro" class="section">
+            <h2>About This Project</h2>
+            <p class="desc">
+                This dashboard turns complex datasets on conflict and civilian harm into clear, comparable visuals.
+                We combine ACLED conflict index metrics (scaled 0–1) with Our World in Data records of conflict deaths.
+            </p>
+            <div class="kpi">
+                <div class="kpi-card">
+                    <div class="kpi-title">Datasets</div>
+                    <div class="kpi-value">ACLED + OWID</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-title">Charts</div>
+                    <div class="kpi-value">8 Comparisons</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-title">Theme</div>
+                    <div class="kpi-value">Light/Dark</div>
                 </div>
             </div>
         </section>
 
-        <!-- 
-      Section 1: Project Description (Mandatory)
-    -->
-        <section id="project" class="content-section">
-            <div class="container">
-                <h2 class="section-title">What This Project Is About</h2>
+        <!-- ====== Tabs ====== -->
+        <div class="tabs">
+            <button data-tab="mandatory" class="active">Mandatory</button>
+            <button data-tab="extra">Extra</button>
+        </div>
 
-                <p class="section-intro">
-                    Our goal for this project was to take complex, often overwhelming data about global conflicts and
-                    turn it into something clear and interactive. We're using data from trusted sources (like ACLED and
-                    Our World in Data) to show the patterns behind these events, hoping to make the information more
-                    accessible to everyone, from students to researchers.
-                </p>
+        <!-- ====== Mandatory Charts ====== -->
+        <section id="mandatory" class="tab-panel active section">
+            <div class="charts-grid">
+                <!-- 1 -->
+                <article class="chart-card" aria-label="Bar chart of top 10 extreme conflict countries">
+                    <header>
+                        <h3>1) Hotspots — Top 10 Extreme Countries (Bar)</h3>
+                        <div class="actions">
+                            <button class="btn dl-png" data-target="chart-1-bar">PNG</button>
+                            <a class="btn" href="./datas/acled_conflict_index_fullyear2024_allcolumns-2.csv"
+                                download>CSV</a>
+                        </div>
+                    </header>
+                    <p class="muted">Direct comparison of total conflict scores among the top-10 “Extreme” countries.
+                    </p>
+                    <div id="chart-1-bar" class="chart lazy" role="img" aria-label="Top 10 extreme countries bar chart">
+                    </div>
+                    <footer class="muted small">Source: ACLED 2024 • Metric scale 0–1 (higher is worse)</footer>
+                </article>
 
-                <div class="image-grid">
-                    <div class="image-card">
-                        <img src="https://placehold.co/600x400/EFEFEF/333333?text=Placeholder:\nRelevant+Chart+Image"
-                            alt="Placeholder for a relevant data chart">
-                        <div class="image-caption">Mapping Global Hotspots</div>
-                    </div>
-                    <div class="image-card">
-                        <img src="https://placehold.co/600x400/EFEFEF/333333?text=Placeholder:\nHumanitarian+Data+Example"
-                            alt="Placeholder for a humanitarian data example">
-                        <div class="image-caption">Analyzing the Trends</div>
-                    </div>
-                </div>
-                <div class="content-grid">
-                    <div class="content-card">
-                        <h3>Project Goals</h3>
-                        <p>Our main objectives were to:</p>
-                        <ul>
-                            <li>Turn confusing stats into clear, visual stories.</li>
-                            <li>Make this data easy for anyone to access and understand.</li>
-                            <li>Use data to show the real human side of these conflicts.</li>
-                            <li>Provide a clear basis for policy and research.</li>
-                        </ul>
-                    </div>
+                <!-- 2 -->
+                <article class="chart-card"
+                    aria-label="Grouped bar comparison of conflict dimensions for top 3 countries">
+                    <header>
+                        <h3>2) Dimensions of Conflict — Top 3 (Grouped Bar)</h3>
+                        <div class="actions">
+                            <button class="btn dl-png" data-target="chart-2-grouped-bar">PNG</button>
+                            <a class="btn" href="./datas/acled_conflict_index_fullyear2024_allcolumns-2.csv"
+                                download>CSV</a>
+                        </div>
+                    </header>
+                    <p class="muted">Deadliness, Diffusion, Danger, Fragmentation (scaled 0–1) for the top 3 “Extreme”
+                        countries.</p>
+                    <div id="chart-2-grouped-bar" class="chart lazy"></div>
+                    <footer class="muted small">Consistent colors used for the 4 metrics across all charts.</footer>
+                </article>
 
-                    <div class="content-card">
-                        <h3>Data Overview</h3>
-                        <p>The data we're visualizing includes:</p>
-                        <ol>
-                            <li>Global conflict events and locations</li>
-                            <li>Casualty statistics and trends over time</li>
-                            <li>Displacement and refugee data</li>
-                            <li>Humanitarian impact assessments</li>
-                        </ol>
-                    </div>
+                <!-- 3 -->
+                <article class="chart-card wide" aria-label="Heatmap of civilian fatalities by country and year">
+                    <header>
+                        <h3>3) Civilian Fatalities — Country × Year (Heatmap)</h3>
+                        <div class="actions">
+                            <button class="btn dl-png" data-target="chart-3-heatmap">PNG</button>
+                            <a class="btn"
+                                href="./datas/number_of_reported_civilian_fatalities_by_country_year_as_of_17Oct2025.csv"
+                                download>CSV</a>
+                        </div>
+                    </header>
+                    <p class="muted">Color intensity shows reported civilian fatalities. Countries sorted by last 5-year
+                        totals.</p>
+                    <div id="chart-3-heatmap" class="chart lazy wide"></div>
+                    <footer class="muted small">Source: Our World in Data • Viridis legend shows absolute counts
+                    </footer>
+                </article>
 
-                    <div class="content-card">
-                        <h3>Our Approach</h3>
-                        <p>Our approach uses modern HTML and CSS to build interactive visualizations. We will focus on:
-                        </p>
-                        <ul>
-                            <li>Temporal analysis (how conflicts change over time)</li>
-                            <li>Geographic mapping of conflict zones</li>
-                            <li>Quantifying the humanitarian impact</li>
-                        </ul>
-                    </div>
-                </div>
+                <!-- 4 -->
+                <article class="chart-card" aria-label="100 percent stacked bar by region and type of conflict">
+                    <header>
+                        <h3>4) Regional Composition of Conflict Deaths (100% Stacked)</h3>
+                        <div class="actions">
+                            <button class="btn dl-png" data-target="chart-4-stacked-100">PNG</button>
+                            <a class="btn"
+                                href="./datas/cumulative_deaths_in_armed_conflicts_by_country_region_and_type.csv"
+                                download>CSV</a>
+                        </div>
+                    </header>
+                    <p class="muted">Each bar shows the proportional makeup of death types for a region.</p>
+                    <div id="chart-4-stacked-100" class="chart lazy"></div>
+                    <footer class="muted small">Offset “expand” produces 100% totals; legend shows types.</footer>
+                </article>
+
+                <!-- 5 -->
+                <article class="chart-card" aria-label="Waffle chart showing global human toll by violence type">
+                    <header>
+                        <h3>5) Global Human Toll by Type (Waffle 10×10)</h3>
+                        <div class="actions">
+                            <button class="btn dl-png" data-target="chart-5-waffle">PNG</button>
+                            <a class="btn"
+                                href="./datas/cumulative_deaths_in_armed_conflicts_by_country_region_and_type.csv"
+                                download>CSV</a>
+                        </div>
+                    </header>
+                    <p class="muted">Each square ≈ 1% of total cumulative deaths.</p>
+                    <div id="chart-5-waffle" class="chart lazy"></div>
+                    <footer class="muted small">World total split by type; rounding corrected to exactly 100 tiles.
+                    </footer>
+                </article>
             </div>
         </section>
 
-        <section class="data-sources" id="data">
-            <div class="container">
-                <h2 class="section-title">Where Our Data Comes From</h2>
-                <p class="section-intro">
-                    We rely on high-quality, professional datasets to make sure our visualizations are accurate and
-                    meaningful.
-                </p>
+        <!-- ====== Extra Charts ====== -->
+        <section id="extra" class="tab-panel section">
+            <div class="charts-grid">
+                <!-- 6 -->
+                <article class="chart-card wide" aria-label="Circle packing of country totals">
+                    <header>
+                        <h3>6) Country Totals (Circle Packing)</h3>
+                        <div class="actions">
+                            <button class="btn dl-png" data-target="chart-6-circle-packing">PNG</button>
+                            <a class="btn"
+                                href="./datas/cumulative_deaths_in_armed_conflicts_by_country_region_and_type.csv"
+                                download>CSV</a>
+                        </div>
+                    </header>
+                    <p class="muted">Bubble size ∝ total cumulative deaths per country (excludes regions & World).</p>
+                    <div id="chart-6-circle-packing" class="chart lazy wide"></div>
+                </article>
 
-                <div class="content-grid">
-                    <div class="source-card">
-                        <h3>ACLED</h3>
-                        <p>ACLED is our primary source for real-time event data. It's incredibly detailed and lets us
-                            see *who* was involved, *what* happened, and *where*.</p>
-                        <a href="https://acleddata.com/" target="_blank" class="external-link">See ACLED's Data →</a>
-                    </div>
+                <!-- 7 -->
+                <article class="chart-card" aria-label="Dumbbell plot of Deadliness vs Danger">
+                    <header>
+                        <h3>7) Deadliness vs Danger (Dumbbell)</h3>
+                        <div class="actions">
+                            <button class="btn dl-png" data-target="chart-7-dumbbell">PNG</button>
+                            <a class="btn" href="./datas/acled_conflict_index_fullyear2024_allcolumns-2.csv"
+                                download>CSV</a>
+                        </div>
+                    </header>
+                    <p class="muted">Gap (Δ) summarizes distance between the two scaled metrics (0–1).</p>
+                    <div id="chart-7-dumbbell" class="chart lazy"></div>
+                </article>
 
-                    <div class="source-card">
-                        <h3>Our World in Data</h3>
-                        <p>Our World in Data is perfect for seeing the 'big picture.' We use it to get historical
-                            context and understand long-term trends in conflict-related deaths.</p>
-                        <a href="https://ourworldindata.org/conflict-deaths-breakdown" target="_blank"
-                            class="external-link">Explore Their Data →</a>
-                    </div>
-
-                    <div class="source-card">
-                        <h3>Additional Resources</h3>
-                        <p>We also cross-reference our info with other sources, like the Berkeley Library's data
-                            collection, to ensure everything is as accurate as possible.</p>
-                        <a href="https://guides.lib.berkeley.edu/c.php?g=4447&p=6163450" target="_blank"
-                            class="external-link">View Resources →</a>
-                    </div>
-                </div>
+                <!-- 8 -->
+                <article class="chart-card wide" aria-label="Small multiples stacked bars by region">
+                    <header>
+                        <h3>8) Regional Profiles (Small Multiples, Stacked)</h3>
+                        <div class="actions">
+                            <button class="btn dl-png" data-target="chart-8-small-multiples">PNG</button>
+                            <a class="btn"
+                                href="./datas/cumulative_deaths_in_armed_conflicts_by_country_region_and_type.csv"
+                                download>CSV</a>
+                        </div>
+                    </header>
+                    <p class="muted">Each mini-chart shows raw totals of death types for a region.</p>
+                    <div id="chart-8-small-multiples" class="sm-grid lazy"></div>
+                </article>
             </div>
+        </section>
+
+        <!-- ====== Methods ====== -->
+        <section id="methods" class="section">
+            <h2>Data & Methods</h2>
+            <ul class="desc">
+                <li><b>ACLED 2024:</b> Deadliness, Diffusion, Danger, Fragmentation — scaled 0–1.</li>
+                <li><b>OWID:</b> cumulative/annual conflict deaths by type, country, region.</li>
+                <li>Axes, gridlines, tooltips, legends, and colors are standardized.</li>
+            </ul>
         </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 ConflictViz Project | Università di Genova</p>
-                <ul class="footer-links">
-                    <li><a href="https://github.com/NMSW-datavis/docs" target="_blank">GitHub Repository</a></li>
-                    <li><a href="https://nmsw-datavis.github.io/docs/" target="_blank">GitHub Pages</a></li>
-                </ul>
-                <p class="footer-note">Built with valid HTML5 & CSS3. Focused on ethical data visualization.</p>
-            </div>
+            <small>&copy; 2025 ConflictViz • Built with D3 v7 • <a href="#intro">Back to top</a></small>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>
